@@ -1,0 +1,11 @@
+База 
+
+fmap f (fmap g [ ]) = fmap f [ ] = [ ] (так как map _ [] = [])
+
+fmap (f . g) [ ] = [ ] (Аналогично) , [ ] = [ ]  для базы закон выполняется
+
+Шаг
+
+fmap f (fmap g x:xs) = fmap f (g x : map g xs) = f (g x) : map f (map g xs) = (f . g) x : map f (map g xs) = (f . g) x : map (f . g) xs
+
+fmap (f . g) x:xs = (f . g) x : map (f . g) xs, для шага закон выполняется, следовательно по индукции закон выполняется .
